@@ -1,3 +1,5 @@
+import numpy
+
 import streamlit as st
 import pandas as pd
 import shap
@@ -73,19 +75,19 @@ Y = pd.DataFrame(boston.target, columns=["MEDV"])
 st.sidebar.header('Specify Input Parameters')
 
 def user_input_features():
-    CRIM = st.sidebar.slider('CRIM', X.CRIM.min(), X.CRIM.max(), X.CRIM.mean())
-    ZN = st.sidebar.slider('ZN', X.ZN.min(), X.ZN.max(), X.ZN.mean())
-    INDUS = st.sidebar.slider('INDUS', X.INDUS.min(), X.INDUS.max(), X.INDUS.mean())
-    CHAS = st.sidebar.slider('CHAS', X.CHAS.min(), X.CHAS.max(), X.CHAS.mean())
-    NOX = st.sidebar.slider('NOX', X.NOX.min(), X.NOX.max(), X.NOX.mean())
-    RM = st.sidebar.slider('RM', X.RM.min(), X.RM.max(), X.RM.mean())
-    AGE = st.sidebar.slider('AGE', X.AGE.min(), X.AGE.max(), X.AGE.mean())
-    DIS = st.sidebar.slider('DIS', X.DIS.min(), X.DIS.max(), X.DIS.mean())
-    RAD = st.sidebar.slider('RAD', X.RAD.min(), X.RAD.max(), X.RAD.mean())
-    TAX = st.sidebar.slider('TAX', X.TAX.min(), X.TAX.max(), X.TAX.mean())
-    PTRATIO = st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), X.PTRATIO.mean())
-    B = st.sidebar.slider('B', X.B.min(), X.B.max(), X.B.mean())
-    LSTAT = st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(), X.LSTAT.mean())
+    CRIM = numpy.float(st.sidebar.slider('CRIM', X.CRIM.min(), X.CRIM.max(), X.CRIM.mean()))
+    ZN = numpy.float(st.sidebar.slider('ZN', X.ZN.min(), X.ZN.max(), X.ZN.mean()))
+    INDUS = numpy.float(st.sidebar.slider('INDUS', X.INDUS.min(), X.INDUS.max(), X.INDUS.mean()))
+    CHAS = numpy.float(st.sidebar.slider('CHAS', X.CHAS.min(), X.CHAS.max(), X.CHAS.mean()))
+    NOX = numpy.float(st.sidebar.slider('NOX', X.NOX.min(), X.NOX.max(), X.NOX.mean()))
+    RM = numpy.float(st.sidebar.slider('RM', X.RM.min(), X.RM.max(), X.RM.mean()))
+    AGE = numpy.float(st.sidebar.slider('AGE', X.AGE.min(), X.AGE.max(), X.AGE.mean()))
+    DIS = numpy.float(st.sidebar.slider('DIS', X.DIS.min(), X.DIS.max(), X.DIS.mean()))
+    RAD = numpy.float(st.sidebar.slider('RAD', X.RAD.min(), X.RAD.max(), X.RAD.mean()))
+    TAX = numpy.float(st.sidebar.slider('TAX', X.TAX.min(), X.TAX.max(), X.TAX.mean()))
+    PTRATIO = numpy.float(st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), X.PTRATIO.mean()))
+    B = numpy.float(st.sidebar.slider('B', X.B.min(), X.B.max(), X.B.mean()))
+    LSTAT = numpy.float(st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(), X.LSTAT.mean()))
     data = {'CRIM': float(CRIM),
             'ZN': float(ZN),
             'INDUS': float(INDUS),
