@@ -85,7 +85,7 @@ def user_input_features():
     DIS = numpy.float(st.sidebar.slider('DIS', X.DIS.min(), X.DIS.max(), float(X.DIS.mean())))
     RAD = numpy.float(st.sidebar.slider('RAD', X.RAD.min(), X.RAD.max(), float(X.RAD.mean())))
     TAX = numpy.float(st.sidebar.slider('TAX', X.TAX.min(), X.TAX.max(), float(X.TAX.mean())))
-    PTRATIO = numpy.float(st.sidebar.slider('PTRATIO', X.PTRATIO.min(), float(X.PTRATIO.max(), X.PTRATIO.mean())))
+    PTRATIO = numpy.float(st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), float(X.PTRATIO.mean())))
     B = numpy.float(st.sidebar.slider('B', X.B.min(), X.B.max(), float(X.B.mean())))
     LSTAT = numpy.float(st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(), float(X.LSTAT.mean())))
     data = {'CRIM': float(CRIM),
