@@ -43,7 +43,7 @@ with row1_1:
 
 with row1_2:
     # st.image('logo.png')
-    st.title("Predicting House Prices in Bangalore, India")
+    st.title("Predicting House Prices in Boston, USA")
     st.markdown("<h2>A POC for a Real Estate Client</h2>", unsafe_allow_html=True)
 
 # first row second column
@@ -52,7 +52,7 @@ with row1_3:
         """
         ##
         This data product has been prepared as a proof of concept of a machine learning model to predict prices of houses in Cairo, Egypt.
-        For demonstration purposes, we have used the data from Bangalore to prove the technical feasibility of the model. Developing the final model required
+        For demonstration purposes, we have used the data from Boston to prove the technical feasibility of the model. Developing the final model required
         many steps following the CRISP-DM methodology. After building the model we used it to predict the prices in this application. **The model can be changed/
         enhanced for any another city based on its own data.**
         """)
