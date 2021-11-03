@@ -1,0 +1,4 @@
+streamlit
+numpy
+sklearn
+shap==0.31.0
