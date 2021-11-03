@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run BangalorHousesPricePrediction.py
+web: sh setup.sh && streamlit run boston-housing-ml.py
