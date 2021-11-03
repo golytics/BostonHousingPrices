@@ -2,4 +2,4 @@ streamlit
 numpy==1.18.1
 sklearn
 shap==0.31.0
-matplotlib
+matplotlib==3.4.2

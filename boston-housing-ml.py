@@ -86,19 +86,19 @@ def user_input_features():
     PTRATIO = st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), X.PTRATIO.mean())
     B = st.sidebar.slider('B', X.B.min(), X.B.max(), X.B.mean())
     LSTAT = st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(), X.LSTAT.mean())
-    data = {'CRIM': CRIM,
-            'ZN': ZN,
-            'INDUS': INDUS,
-            'CHAS': CHAS,
-            'NOX': NOX,
-            'RM': RM,
-            'AGE': AGE,
-            'DIS': DIS,
-            'RAD': RAD,
-            'TAX': TAX,
-            'PTRATIO': PTRATIO,
+    data = {'CRIM': float(CRIM),
+            'ZN': float(ZN),
+            'INDUS': float(INDUS),
+            'CHAS': float(CHAS),
+            'NOX': float(NOX),
+            'RM': float(RM),
+            'AGE': float(AGE),
+            'DIS': float(DIS),
+            'RAD': float(RAD),
+            'TAX': float(TAX),
+            'PTRATIO': float(PTRATIO),
             'B': B,
-            'LSTAT': LSTAT}
+            'LSTAT': float(LSTAT)}
     features = pd.DataFrame(data, index=[0])
     return features
 
