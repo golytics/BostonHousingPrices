@@ -1,5 +1,5 @@
 streamlit
-numpy==1.18.1
+numpy==1.10.1
 sklearn
 shap==0.36.0
 matplotlib==3.4.2
