@@ -60,11 +60,22 @@ with row1_3:
         enhanced for any another city based on its own data.**
         """)
 st.write("""
-# Boston House Price Prediction App
-
-This app predicts the **Boston House Price**!
+# This app predicts the **Prices** of houses in Boston
 """)
-st.write('---')
+
+
+st.subheader('How to use the model?')
+'''
+You can use the model by modifying the User Input Parameters on the left. The parameters will be passed to the classification
+model and the model will run each time you modify the parameters.
+
+1- You will see the values of the features/ parameters in the **'User Input Parameters'** section in the table below.
+
+2- You will see the prediction result (median value of owner-occupied homes in \$1000s) under the **'Prediction of MEDV'** section below.
+
+'''
+
+
 
 # Loads the Boston House Price Dataset
 boston = datasets.load_boston()
@@ -73,7 +84,10 @@ Y = pd.DataFrame(boston.target, columns=["MEDV"])
 
 # Sidebar
 # Header of Specify Input Parameters
-st.sidebar.header('Specify Input Parameters')
+st.sidebar.header("""User input features/ parameters: 
+
+Select/ modify the combination of features below to predict the price
+                """)
 
 def user_input_features():
     CRIM = numpy.float(st.sidebar.slider('CRIM', X.CRIM.min(), X.CRIM.max(), float(X.CRIM.mean())))
@@ -110,9 +124,8 @@ df = user_input_features()
 # Main Panel
 
 # Print specified input parameters
-st.header('Specified Input parameters')
+st.header('User Input parameters')
 st.write(df)
-st.write('---')
 
 # Build Regression Model
 model = RandomForestRegressor()
@@ -121,7 +134,12 @@ model.fit(X, Y)
 prediction = model.predict(df)
 
 st.header('Prediction of MEDV')
-st.write(prediction)
+# st.write(prediction)
+html_str = f"""
+<h3 style="color:lightgreen;">{prediction} LAKH</h3>
+"""
+
+st.markdown(html_str, unsafe_allow_html=True)
 st.write('---')
 
 # Explaining the model's predictions using SHAP values
@@ -139,6 +157,63 @@ plt.title('Feature importance (weight) based on the values shown in the bar char
 shap.summary_plot(shap_values, X, plot_type="bar")
 st.pyplot(bbox_inches='tight')
 
+st.info("""**Note: ** [The data source is]: ** (https://www.kaggle.com/amitabhajoy/bengaluru-house-price-data). the following steps have been applied till we reached the model:
+
+        1- Data Acquisition/ Data Collection (reading data, adding headers)
+
+        2- Data Cleaning / Data Wrangling / Data Pre-processing (handling missing values, correcting data fromat/ data standardization 
+        or transformation/ data normalization/ data binning/ Preparing Indicator or binary or dummy variables for Regression Analysis/ 
+        Saving the dataframe as ".csv" after Data Cleaning & Wrangling)
+
+        3- Exploratory Data Analysis (Analyzing Individual Feature Patterns using Visualizations/ Descriptive statistical Analysis/ 
+        Basics of Grouping/ Correlation for continuous numerical variables/ Analysis of Variance-ANOVA for ctaegorical or nominal or 
+        ordinal variables/ What are the important variables that will be used in the model?)
+
+        4- Model Development (Single Linear Regression and Multiple Linear Regression Models/ Model Evaluation using Visualization)
+
+        5- Polynomial Regression Using Pipelines (one-dimensional polynomial regession/ multi-dimensional or multivariate polynomial 
+        regession/ Pipeline : Simplifying the code and the steps)
+
+        6- Evaluating the model numerically: Measures for in-sample evaluation (Model 1: Simple Linear Regression/ 
+        Model 2: Multiple Linear Regression/ Model 3: Polynomial Fit)
+
+        7- Predicting and Decision Making (Prediction/ Decision Making: Determining a Good Model Fit)
+
+        8- Model Evaluation and Refinement (Model Evaluation/ cross-validation score/ over-fitting, under-fitting and model selection)
+
+""")
+
 
 with open("style.css") as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Published By: <a href="https://golytics.github.io/" target="_blank">Dr. Mohamed Gabr</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
