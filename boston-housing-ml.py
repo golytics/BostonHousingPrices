@@ -12,6 +12,7 @@ from sklearn.ensemble import RandomForestRegressor
 # configuring the page and the logo
 st.set_page_config(page_title='Mohamed Gabr - House Price Prediction', page_icon ='logo.png', layout = 'wide', initial_sidebar_state = 'auto')
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 import os
 import base64
