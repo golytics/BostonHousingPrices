@@ -60,7 +60,7 @@ with row1_3:
         enhanced for any another city based on its own data.**
         """)
 st.write("""
-# This app predicts the **Prices** of houses in Boston
+This app predicts the **Prices** of houses in Boston
 """)
 
 
@@ -77,8 +77,8 @@ model and the model will run each time you modify the parameters.
 
 '''
 
-st.write("""The parameters in the sidebar can be described as below:
-
+st.subheader('The parameters in the sidebar can be described as below:')
+st.write("""
 crim
 per capita crime rate by town.
 
@@ -178,10 +178,10 @@ model.fit(X, Y)
 # Apply Model to Make Prediction
 prediction = model.predict(df)
 
-st.header('Prediction of MEDV')
+st.header('Prediction (MEDV)')
 # st.write(prediction)
 html_str = f"""
-<h3 style="color:lightgreen;">{prediction} 1000 $</h3>
+<h3 style="color:lightgreen;">{prediction} Thousand Dollars $</h3>
 """
 
 st.markdown(html_str, unsafe_allow_html=True)
